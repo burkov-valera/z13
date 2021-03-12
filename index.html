@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Список SELECT в javascript</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main_form.js"></script>
+</head>
+<body>
+<!----------Код html----------->
+
+<p><b>Список SELECT в javascript</b></p>
+<br/>
+<p><input type="text" id="textInput" placeholder="Введите текст" /></p>
+<select id="mySelect" size="6">
+  <option value="Apple" selected="selected">Apple</option>
+  <option value="Orange">Orange</option>
+  <option value="Pineapple">Pineapple</option>
+  <option value="Banana">Banana</option>
+</select>
+<p>
+	<input type="button" id="addButton" value="Добавить" onclick="add()" /></br>
+	<input type="button" id="delButton" value="Удалить  " onclick="del()" /></br>
+	<input type="button" id="showButton" value="Показать выбранное" onclick="show()" />
+</p>
+<br/>
+<div id = "label"><b>Ваш выбор:</b></div>
+
+
+
+
+<script>
+// обработчик добавления элемента
+function add(){
+    // получаем текст для элемента
+    var text = document.getElementById('textInput').value;
+	var options=document.getElementById('mySelect').options;
+    var newOption = new Option(text, text);
+    options[options.length]=newOption;
+}
+
+// обработчик удаления элемента
+function del(){
+//Находим индекс выбраного элемента
+var sel=document.getElementById('mySelect').selectedIndex;
+var options=document.getElementById('mySelect').options;
+options[sel] = null;
+}
+
+// обработчик выбора элемента
+function show(){
+//Находим индекс выбраного элемента
+var sel=document.getElementById('mySelect').selectedIndex;
+var options=document.getElementById('mySelect').options;
+var label=document.getElementById('label');
+label.innerHTML = "<b>Ваш выбор:</b> " + options[sel].value;
+}
+
+
+</script>
+
+
+
+
+
+
+
+<!----------Код html----------->
+</body>
+</html>
